@@ -1,3 +1,32 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+
+/* alignment */
+img[alt*="center"] {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img[alt*="left"] {
+    float: left;
+    margin-right: 1rem;
+    margin-bottom: 2px;
+    margin-top: 2px;
+}
+
+img[alt*="right"] {
+    float: right;
+    margin-left: 1rem;
+    margin-bottom: 2px;
+    margin-top: 2px;
+}
+
+/* sizes */
+img[alt*="150"] { width: 150px; }
+img[alt*="200"] { width: 200px; }
+img[alt*="250"] { width: 250px; }
+img[alt*="300"] { width: 300px; }
+img[alt*="400"] { width: 400px; }
+img[alt*="500"] { width: 500px; }
