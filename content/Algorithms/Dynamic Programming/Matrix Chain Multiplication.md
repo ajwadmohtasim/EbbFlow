@@ -13,9 +13,10 @@ The problem lies with the computational complexity. A $X\times Y$ into $Y\times 
 
 For example :
 Consider Matrices $A,B,C$ with dimensions $10\times100, 100\times5, 5\times50$.
- ![[MatrixChainComplexity.png|center]]
+ ![[MatrixChainComplexity.png| 700 center]]
 For higher chain of matrices and dimensions, computation complexity may increase exponentially. 
-Since our aim is to understand the optimized parenthesizing of the expression, one way to solve is applying the brute force approach. But the set of all parenthesizations increases exponentially as the chain gets bigger. The number of ways to fully parenthesize a product of $n$ matrices is given by the $(n-1)-th$ Catalan number: $$C_{n-1} = \frac{1}{n} \binom{2(n-1)}{n-1}$$The optimization? **Dynamic programming** comes to clutch. 
+Since our aim is to understand the optimized parenthesizing of the expression, one way to solve is applying the brute force approach. But the set of all parenthesizations increases exponentially as the chain gets bigger. The number of ways to fully parenthesize a product of $n$ matrices is given by the $(n-1)-th$ Catalan number: 
+$$C_{n-1} = \frac{1}{n} \binom{2(n-1)}{n-1}$$The optimization? **Dynamic programming** comes to clutch. 
 
 We are looking for a **optimal substructure**. An interesting property here is that, if we say $(A\times ((B \times C) \times D))$ is an optimal expression, then $((B \times C) \times D)$ is optimal as well. So does $(B \times C)$.
 By minimizing the sub parenthesis expressions, we can move forward to the larger one. Here's where we use the Dynamic Approach. 
@@ -25,11 +26,14 @@ For the example $(AB)(CD)$ we get a split of $f(0,1) + f(2,3)$.
 
 Now we can represent the matrices as an Array where $M_i \times ... \times M_j$ is the left split and $M_{j+1} \times ..... \times M_k$ is the right split. 
 If we know the optimal way to multiply sub chains $M_i \dots M_j$ and $M_{j+1} \dots M_k$, we can combine them optimally by minimizing:
+
 $$\text{Cost} = \text{Cost of } (M_i \dots M_j) + \text{Cost of } (M_{j+1} \dots M_k) + \text{Cost to multiply the two results}$$
 
 Our Final Result will be $M_{i,j} \times M_{j+1,k}$ , where for each of the split, they require $r_i \times c_j \times c_k$ operations. 
 So our final formula stands as 
+
 $$f(i, k) = \begin{cases} 0 & \text{if } i = k \quad \text{(cost of one matrix is zero)} \\ \min\limits_{i \leq j < k} \left( f(i, j) + f(j+1, k) + p_{i-1} \cdot p_j \cdot p_k \right) & \text{if } i < k \end{cases}$$
+
 Note that, we store the dimension as an Array. For $n$ Matrices we have about $(n+1)$ elements in array $p$ . So $r_i$ is by convention is stored as $p_{i-1}$ .
 $$
 \begin{array}{|c|c|c|}
