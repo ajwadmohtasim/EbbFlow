@@ -17,7 +17,7 @@ When we write a code and compile it, a executable file (.exe) is stored in non-v
 
 #### Processes may be in one of 5 states.
 
-The process is created at "**New**" stage. When the process has all the resources available to run, but the CPU is not currently working on this process's instruction - it's in "**Ready**" stage. When the CPU is working on this stage it's in "**Running**" stage. If the process needs some event to occur and requires some resources it goes in the "**Waiting**" stage. During this time, it may wait for keyboard input, disk access request, child process to finish etc.  When it finishes and terminates - it's the "**Terminated**" stage.
+The process is created at "**New**" stage. When the process has all the resources available to run, but the CPU is not currently working on this process's instruction - it's in "**Ready**" stage. When the CPU is working on the process - it's in "**Running**" stage, During this transition, the <u>CPU scheduler selects a process from the ready queue, and the dispatcher (or dispatch module) gives control of the CPU to that process</u> (More on CPU Scheduling). If the process needs some event to occur and requires some resources it goes in the "**Waiting**" stage. During this time, it may wait for keyboard input, disk access request, child process to finish etc.  When it finishes and terminates - it's the "**Terminated**" stage.
 
 ![[3_02_ProcessState.jpg | 500 center]]
 
