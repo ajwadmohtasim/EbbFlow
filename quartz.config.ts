@@ -16,8 +16,8 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     locale: "en-US",
-    baseUrl: "quartz.jzhao.xyz",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    baseUrl: "ajwadmohtasim.github.io/nulltsuki",
+    ignorePatterns: ["private", "templates", ".obsidian", "docs"],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",
