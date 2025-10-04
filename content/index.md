@@ -1,4 +1,6 @@
 ---
-title: Nullstuki
+title: Nulltsuki
+draft: false
+tags:
 ---
-academic notes and all
+Writing academic notes and all
