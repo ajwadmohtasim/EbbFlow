@@ -1,6 +1,6 @@
 ---
 title: Matrix Chain Multiplication
-draft: false
+draft: true
 tags:
   - DynamicProgramming
 ---

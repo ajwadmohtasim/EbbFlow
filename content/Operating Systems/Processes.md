@@ -3,7 +3,10 @@ title: Processes
 draft: false
 tags:
 ---
-#### A process is an instance of a program in execution.
+
+
+## What is a Process?
+<u>A process is an instance of a program in execution.</u>
 
 When we write a code and compile it, a executable file (.exe) is stored in non-volatile (SSD, HDD) storage.  When we run the program, the OS loads the executable into the RAM (volatile). This instance of the program is a process and it has it's own memory layout.
 ![[3_01_Process_Memory.jpg | 200 right]]The process memory layout is divided into 4 sections.
@@ -15,13 +18,13 @@ When we write a code and compile it, a executable file (.exe) is stored in non-v
 
 *It's to be noted that, Stack is also used for function return values. However, stack management have some variations depending on the language specific usage. Heap and stack start at opposite ends of the process's free space and grow towards each other. If they ever meet, either a stack overflow will occur or calling of new or malloc will fail due to insufficient memory available.*
 
-#### Processes may be in one of 5 states.
+## Processes may be in one of 5 states.
 
 The process is created at "**New**" stage. When the process has all the resources available to run, but the CPU is not currently working on this process's instruction - it's in "**Ready**" stage. When the CPU is working on the process - it's in "**Running**" stage, During this transition, the <u>CPU scheduler selects a process from the ready queue, and the dispatcher (or dispatch module) gives control of the CPU to that process</u> (More on CPU Scheduling). If the process needs some event to occur and requires some resources it goes in the "**Waiting**" stage. During this time, it may wait for keyboard input, disk access request, child process to finish etc.  When it finishes and terminates - it's the "**Terminated**" stage.
 
 ![[3_02_ProcessState.jpg | 500 center]]
 
-#### Process Control Block (PCB)
+## Process Control Block (PCB)
 
 A PCB is a data structure used by the OS to manage information about a process.
 ![[3_03_PCB.jpg | 150 right]]For each <u>process</u> there is a Process Control Block, which stores the following process-specific information:
@@ -36,7 +39,7 @@ A PCB is a data structure used by the OS to manage information about a process.
 
 The PCB is off-limits by the normal users and is stored in a special part of memory (kernel). These are usually stored in a linked-list format and is up for the scheduling queue. The OS puts the PCB on appropriate queues and as the processes are being executed, freed from queue, the OS deallocates the PCB.
 
-#### Process Scheduling
+## Process Scheduling
 
 The CPU needs to be kept busy at all times and to deliver "acceptable" response times for all programs. That's where process scheduling comes in - it needs to optimize the swapping processes in and out of the CPU by implementing suitable policies.
 
@@ -55,7 +58,8 @@ We then have **Schedulers** - who decides which process gets CPU or other resour
 
 *Note that - Ready, Suspend queue and Blocked, Suspended queue are different. Blocked, Suspended queues are Ready processes requiring and I/O event to complete and to free up RAM it is swapped from the Ready Queue. Meanwhile, Ready, suspended processes are only swapped to free up RAMs or to prioritize a smaller-faster job.*
 
-#### Context Switch
+
+## Context Switch
 
 Whenever there's an interrupt, CPU needs to do a <u>state-save</u> of the current running process, then switches to kernel mode to handle the interrupt and do a <u>state-restore</u> after that.
 
@@ -65,7 +69,7 @@ Saving and restoring states involves saving and restoring all of the registers a
 
 Although there's the problem of lost CPU time, context switching needs to be fast as possible. As such, some hardware's are designed specially to speed things up.
 
-#### Interprocess Communication (IPC)
+## Interprocess Communication (IPC)
 
 Processes need to communicate with each other in many situations. IPC allows that.
 <u>Independent Processes</u> running concurrently on a system are not affected by other processes. <u>Cooperating Processes</u> does, and there's a good reason for that :
