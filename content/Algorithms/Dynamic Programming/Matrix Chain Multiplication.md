@@ -1,6 +1,6 @@
 ---
 title: Matrix Chain Multiplication
-draft: true
+draft: false
 tags:
   - DynamicProgramming
 ---
@@ -13,7 +13,7 @@ The problem lies with the computational complexity. A $X\times Y$ into $Y\times 
 
 For example :
 Consider Matrices $A,B,C$ with dimensions $10\times100, 100\times5, 5\times50$.
- ![[MatrixChainComplexity.png| 700 center]]
+ ![[MatrixChainComplexity.png| 700 center]]%%  %%
 For higher chain of matrices and dimensions, computation complexity may increase exponentially. 
 Since our aim is to understand the optimized parenthesizing of the expression, one way to solve is applying the brute force approach. But the set of all parenthesizations increases exponentially as the chain gets bigger. The number of ways to fully parenthesize a product of $n$ matrices is given by the $(n-1)-th$ Catalan number: 
 $$C_{n-1} = \frac{1}{n} \binom{2(n-1)}{n-1}$$The optimization? **Dynamic programming** comes to clutch. 
