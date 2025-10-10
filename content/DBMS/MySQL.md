@@ -1,5 +1,6 @@
 *This note uses XAMPP for MySQL and assumes, it's already set up.*
 Before starting, here are the SQL commands at a glance:
+<div align="center">
 
 | SQL Command       | Description                      |
 | ----------------- | -------------------------------- |
@@ -14,6 +15,7 @@ Before starting, here are the SQL commands at a glance:
 | `DROP TABLE`      | Deletes a table                  |
 | `CREATE INDEX`    | Creates an index (search key)    |
 | `DROP INDEX`      | Deletes an index                 |
+</div>
 
 ### Introduction to the basics
 This section will walkthrough all the SQL basics and commands.
@@ -191,3 +193,6 @@ To delete the entire table, use `DROP`.
 ```sql
 DROP TABLE customer;
 ```
+
+
+
