@@ -57,18 +57,10 @@ We then have **Schedulers** - who decides which process gets CPU or other resour
 ![[Queue Diagram for Schedule.png| 700 center]]
 
 *Note that - Ready, Suspend queue and Blocked, Suspended queue are different. Blocked, Suspended queues are Ready processes requiring and I/O event to complete and to free up RAM it is swapped from the Ready Queue. Meanwhile, Ready, suspended processes are only swapped to free up RAMs or to prioritize a smaller-faster job.*
-
-
 ## Context Switch
 
 Whenever there's an interrupt, CPU needs to do a <u>state-save</u> of the current running process, then switches to kernel mode to handle the interrupt and do a <u>state-restore</u> after that.
-
-![[3_04_ProcessSwitch 1.jpg| 500 left]]**Context Switch** is a similar case, which occurs when the <u>time slice</u> for one process is over and a new process is to be loaded from the <u>ready queue</u>. This is caused by a timer interrupt.
-
-Saving and restoring states involves saving and restoring all of the registers and program counter(s) and PCBs.
-
-Although there's the problem of lost CPU time, context switching needs to be fast as possible. As such, some hardware's are designed specially to speed things up.
-
+![[3_04_ProcessSwitch 1.jpg| 500 center]]**Context Switch** is a similar case, which occurs when the <u>time slice</u> for one process is over and a new process is to be loaded from the <u>ready queue</u>. This is caused by a timer interrupt. Saving and restoring states involves saving and restoring all of the registers and program counter(s) and PCBs. Although there's the problem of lost CPU time, context switching needs to be fast as possible. As such, some hardware's are designed specially to speed things up.
 ## Interprocess Communication (IPC)
 
 Processes need to communicate with each other in many situations. IPC allows that.
